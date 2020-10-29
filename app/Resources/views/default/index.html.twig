@@ -1,7 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    Hello word {{ a }}
+    Hello word {{ a }} <br>
+
+    {% if(bool_true) %}
+
+        {% for key, item in  array %}
+            {{ key }} - {{ item }} &nbsp;
+        {% endfor %}
+
+    {% endif %}
+
 {% endblock %}
 
 {% block stylesheets %}
