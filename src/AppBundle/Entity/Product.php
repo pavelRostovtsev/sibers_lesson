@@ -57,6 +57,16 @@ class Product
     private $active = true;
 
     /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Get active
      *
      * @return bool

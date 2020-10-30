@@ -13,12 +13,9 @@ class ProductController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $products = [];
 
-        for ($i = 1; $i < 10; $i ++) {
-            $products[$i] = rand(1,100);
-        }
 
+        $products = $this->getDoctrine()->getRepository('AppBundle:Product')->findAll();
         return $this->render('@App/product/index.html.twig',[
             'products' => $products,
         ]);
@@ -29,8 +26,14 @@ class ProductController extends Controller
      */
     public function showAction($id)
     {
+        $product = $this->getDoctrine()->getRepository('AppBundle:Product')->find($id);
+
+        if (!$product) {
+            throw $this->createNotFoundException('Product not found');
+        }
+
         return $this->render('@App/product/show.html.twig',[
-            'id' => $id
+            'product' => $product
         ]);
     }
 
