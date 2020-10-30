@@ -13,9 +13,11 @@ class ProductController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $products = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Product')
+            ->findActive();
 
-
-        $products = $this->getDoctrine()->getRepository('AppBundle:Product')->findAll();
         return $this->render('@App/product/index.html.twig',[
             'products' => $products,
         ]);
