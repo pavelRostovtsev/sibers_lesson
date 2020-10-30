@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block body %}
-    <h3>{{ id }}</h3>
+    <h1>{{ product.getTitle() }}</h1>
+    <h3>{{ product.getDescription() }}</h3>
+    <h1>{{ product.getPrice() }}</h1>
+    <h1>{{ product.isActive() }}</h1>
 {% endblock %}
 
 {% block stylesheets %}
