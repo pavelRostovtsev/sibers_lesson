@@ -19,6 +19,8 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
          */
         return $this
             ->createQueryBuilder('product')
+            ->join('product.category', 'category')
+            ->andWhere('category.active = :active')
             ->where('product.active = :active')
             ->setParameter('active', '1')
             ->getQuery()

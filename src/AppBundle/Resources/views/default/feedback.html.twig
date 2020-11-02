@@ -6,6 +6,14 @@
 
 {% block body %}
 
+
+    {{ form_start(feedback_form) }}
+
+        {{ form_row(feedback_form.email)  }}
+
+    {{ form_end(feedback_form) }}
+
+
 {% endblock %}
 
 {% block stylesheets %}
