@@ -43,7 +43,7 @@ class Product
     private $description;
 
     /**
-     * @var string
+     * @var Category|null
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category")
      */
@@ -82,7 +82,7 @@ class Product
      */
     public function setActive($active)
     {
-        $this->title = $active;
+        $this->active = $active;
 
         return $this;
     }
@@ -176,7 +176,7 @@ class Product
     /**
      * Get category
      *
-     * @return string
+     * @return Category|null
      */
     public function getCategory()
     {
