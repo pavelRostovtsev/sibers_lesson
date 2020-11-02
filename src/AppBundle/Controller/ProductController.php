@@ -42,21 +42,17 @@ class ProductController extends Controller
 
     /**
      * @Route("/categories/{id}", name="product_by_category")
-     *
-     * @param Category $category
-     *
-     * @return array
      */
     public function listByCategoryAction(Category $category)
     {
-        $product = $this
+        $products = $this
             ->getDoctrine()
-            ->getRepository('AppBundle:Category')
+            ->getRepository('AppBundle:Product')
             ->findByCategory($category)
             ;
 
         return $this->render('@App/product/list_by_category.html.twig',[
-            'product' => $product,
+            'products' => $products,
         ]);
     }
 
