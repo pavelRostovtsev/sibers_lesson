@@ -7,8 +7,7 @@
 {% block body %}
     <h1>{{ product.getTitle() }}</h1>
     <h3>{{ product.getDescription() }}</h3>
-    <h1>{{ product.getPrice() }}</h1>
-    <h1>{{ product.isActive() }}</h1>
+    <p>{{ product.getCategory.getName() }}</p>
 {% endblock %}
 
 {% block stylesheets %}

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,6 +37,26 @@ class ProductController extends Controller
 
         return $this->render('@App/product/show.html.twig',[
             'product' => $product
+        ]);
+    }
+
+    /**
+     * @Route("/categories/{id}", name="product_by_category")
+     *
+     * @param Category $category
+     *
+     * @return array
+     */
+    public function listByCategoryAction(Category $category)
+    {
+        $product = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Category')
+            ->findByCategory($category)
+            ;
+
+        return $this->render('@App/product/list_by_category.html.twig',[
+            'product' => $product,
         ]);
     }
 
